@@ -39,7 +39,8 @@ CRIA UMA QUANTIDADE AUTOMÁTICA DE COLUNAS, RESPEITANDO O TAMANHO MÍNIMO E O M�
     left: .5rem;
   }
 
-  &:hover, &:focus-within {
+  &:hover, 
+  &:focus-within {
     border: 1px solid var(--stroke-highlight);
 
     & .radio-image {
