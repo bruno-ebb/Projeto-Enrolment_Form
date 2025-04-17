@@ -1,0 +1,107 @@
+
+input, textarea, select {
+  appearance: none;
+
+  width: 100%;
+  border-radius: .5rem;
+  border: 1px solid var(--stroke-default);
+
+  padding: .75rem 1rem;
+  font: var(--text);
+
+}
+
+label {
+  font: var(--text-sm);
+  color: var(--text-secondary);
+
+  display: block;
+  margin-bottom: .25rem;
+}
+
+/* FOCUS WITHIN = VERIFICA SE ALGUM ELEMENTO ALI DENTRO ESTÁ EM FOCO */
+input:focus, 
+textarea:focus, 
+select:focus,
+input[type="date"]:focus-within {
+  outline: .25rem solid var(--surface-secondary);
+  border: .125rem solid var(--stroke-highlight);
+  /* FOR SAFARI */
+  outline-offset: 1px;
+}
+
+input[type="date"] {
+  position: relative;
+  
+  /* APAGA O ÍCONE DE CALENDÁRIO QUE APARECE POR PADRÃO */
+  &::-webkit-calendar-picker-indicator {
+    opacity: 0;
+  }
+
+  /* CRIA UM ELEMENTO CUSTOMIZADO */
+  &::before {
+    content: "";
+    position: absolute;
+    background: url(../../assets/icons/calendar-03.svg) center/contain;
+    right: 1rem;
+    width: 1.25rem;
+    height: 1.25rem;
+    
+    /* ALINHA O ELEMENTO */
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+select {
+  background: url(../../assets/icons/arrow-down-01.svg) no-repeat calc(100% - .9rem);
+}
+
+.address .flex {
+  gap: 1.25rem;
+}
+
+.input-wrapper:has([disabled]) {
+  opacity: .5;
+}
+
+/* UM INPUT QUE TENHA O ATRIBUTO DISABLED */
+input {
+  &[disabled] {
+    background-color: var(--surface-disabled);
+    border: 1px solid var(--stroke-default);
+    color: var(--text-primary);
+  }
+
+  &:invalid {
+    border: 1.125px solid var(--semantic-error);
+  }
+
+  & + small {
+    color: #78716c;
+    font: var(--text-sm);
+    
+    display: inline-block;
+    margin-top: .25rem;
+  }
+
+  &[required] + .error {
+    display: flex;
+    align-items: center;
+    gap: .25rem;
+    margin-top: .25rem;
+
+    font: var(--text-sm);
+    color: var(--semantic-error);
+  }
+
+  &:not(:focus):valid + .error {
+    display: none;
+  }
+}
+/* 
+O CAMPO INVALID VERIFICA SE O CAMPO ESTÁ INVALIDADO PELO REQUIRED
+
+o &:not(:focus):valid + .error VERIFICA SE O CAMPO NÃO ESTÁ EM FOCO E SE O CAMPO É VÁLIDO, SE FOR, ESCONDE A MENSAGEM DE ERRO
+
+*/
