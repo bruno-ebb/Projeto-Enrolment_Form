@@ -1,19 +1,15 @@
 #app {
-  display: grid;
-  grid-template-columns:51.25% 48.75%;
-
-  height: 100vh;
-  overflow: hidden;
-
+  display: flex;
+  flex-direction: column-reverse;
+  min-height: 100vh;
 }
 
 main {
-  overflow: auto;
-  padding: 4rem;
+  padding: 1.5rem;
 
   & .main-container {
-    max-width: 33rem;
-    margin-left: auto;
+    max-width: 33rem;    
+    margin: 0 auto;
   }
 
   & .back {
@@ -32,13 +28,20 @@ main {
 
 aside {
   background-color: var(--surface-secondary);
-  padding: 4rem;
-
+  padding: 1.5rem;
+  
   & .aside-container {
     max-width: 31rem;
+    margin: auto;
+
+    & header img {
+      display: block;
+      margin-inline: auto;
+
+    }
 
     & > img {
-      margin-top: 2rem;
+      margin-top: .75rem;
     }
   }
 
@@ -48,6 +51,50 @@ aside {
 
     & span {
       color: var(--text-highlight);
+    }
+  }
+}
+
+
+/* ----------------------------------------------------- */
+
+@media (width >= 800px) {
+
+  #app {
+  display: grid;
+  grid-template-columns:51.25% 48.75%;
+
+  height: 100vh;
+  overflow: hidden;
+
+  }
+
+  main {
+    overflow: auto;
+    padding: 4rem;
+
+    & .main-container {
+      max-width: 33rem;
+      margin-inline: auto 0;
+    }
+
+  }
+
+  aside {
+    padding: 4rem;
+
+    & .aside-container {
+      margin-inline: 0 auto;
+
+      & header img {
+        margin-inline: 0;
+        padding-bottom: 8px;
+      }
+
+
+      & > img {
+        margin-top: 2rem;
+      }
     }
   }
 }

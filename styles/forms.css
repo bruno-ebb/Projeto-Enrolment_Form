@@ -22,6 +22,16 @@ fieldset + fieldset {
 
 .actions-wrapper {
   margin-top: 3rem;
-  display: flex;
+  display: grid;
   gap: 1rem;
+}
+
+
+/* ----------------------------------------------- */
+
+@media (width >= 800px) {
+  .actions-wrapper {
+    display: flex;
+    justify-content: flex-end;
+  }
 }
